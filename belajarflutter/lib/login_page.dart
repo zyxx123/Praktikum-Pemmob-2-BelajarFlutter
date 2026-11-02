@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             TextButton(
               child: const Text('OK'),
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) => alamat,
@@ -62,6 +62,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
+        automaticallyImplyLeading: false,
       ), // AppBar
       body: Container(
         padding: const EdgeInsets.all(20),
