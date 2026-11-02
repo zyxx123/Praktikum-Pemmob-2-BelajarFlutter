@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:belajarflutter/hello_world.dart';
 import 'package:belajarflutter/column_widget.dart';
 import 'package:belajarflutter/row_widget.dart';
 import 'package:belajarflutter/ui/produk_form.dart';
 import 'package:belajarflutter/ui/produk_page.dart';
+import 'package:belajarflutter/login_page.dart';
+import 'package:belajarflutter/home_page.dart';
 
 void main() {
+  setUp(() {
+    SharedPreferences.setMockInitialValues({});
+  });
+
   testWidgets('Test HelloWorld widget', (WidgetTester tester) async {
     await tester.pumpWidget(const MaterialApp(home: HelloWorld()));
     expect(find.text('Belajar Flutter'), findsOneWidget);
@@ -58,5 +65,60 @@ void main() {
     expect(find.text('Playstation'), findsOneWidget);
     expect(find.text('Radio'), findsOneWidget);
     expect(find.text('30000'), findsNWidgets(3));
+  });
+
+  testWidgets('Test LoginPage login success', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(home: LoginPage()));
+    expect(find.text('Login'), findsWidgets);
+
+    await tester.enterText(find.widgetWithText(TextField, 'Masukkan Username'), 'admin');
+    await tester.enterText(find.widgetWithText(TextField, 'Masukkan Password'), 'admin');
+
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Login'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Anda Berhasil Login'), findsOneWidget);
+
+    await tester.tap(find.text('OK'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Home Page'), findsOneWidget);
+  });
+
+  testWidgets('Test LoginPage login failure', (WidgetTester tester) async {
+    await tester.pumpWidget(const MaterialApp(home: LoginPage()));
+
+    await tester.enterText(find.widgetWithText(TextField, 'Masukkan Username'), 'wrong');
+    await tester.enterText(find.widgetWithText(TextField, 'Masukkan Password'), 'wrong');
+
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Login'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Username dan Password Salah'), findsOneWidget);
+  });
+
+  testWidgets('Test HomePage with Sidemenu and AboutPage', (WidgetTester tester) async {
+    SharedPreferences.setMockInitialValues({'username': 'admin'});
+    await tester.pumpWidget(const MaterialApp(home: HomePage()));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Home Page'), findsOneWidget);
+    expect(find.text('Ini adalah halaman User admin'), findsOneWidget);
+
+    // Open drawer
+    final ScaffoldState state = tester.firstState(find.byType(Scaffold));
+    state.openDrawer();
+    await tester.pumpAndSettle();
+
+    expect(find.text('Sidemenu'), findsOneWidget);
+    expect(find.text('Home'), findsOneWidget);
+    expect(find.text('About'), findsOneWidget);
+
+    // Tap About in drawer
+    await tester.tap(find.text('About'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('About Page'), findsOneWidget);
+    expect(find.text('Ini adalah halaman About'), findsOneWidget);
   });
 }
