@@ -113,3 +113,8 @@ Implementasi tugas dan latihan praktikum Pemrograman Mobile menggunakan framewor
    - Navigasi rute ke halaman `HomePage` dan `AboutPage`.
 4. **About Page (`lib/about_page.dart`)**:
    - Halaman informasi aplikasi yang juga dilengkapi dengan menu samping (*side menu*).
+
+#### Display Modul 3
+<p align="center">
+  <img src="screenshoot/display2.gif" alt="screenshoot/display2.gif" width="350" />
+</p>
