@@ -46,7 +46,11 @@ class _ProdukDetailState extends State<ProdukDetail> {
       mainAxisSize: MainAxisSize.min,
       children: [
         // Tombol Edit
-        OutlinedButton(
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.white,
+          ),
           child: const Text("EDIT"),
           onPressed: () {
             Navigator.push(
@@ -59,8 +63,13 @@ class _ProdukDetailState extends State<ProdukDetail> {
             );
           },
         ),
+        const SizedBox(width: 8),
         // Tombol Hapus
-        OutlinedButton(
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
           child: const Text("DELETE"),
           onPressed: () => confirmHapus(),
         ),

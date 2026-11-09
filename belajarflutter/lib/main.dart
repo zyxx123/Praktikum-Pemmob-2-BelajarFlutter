@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import
 import 'package:flutter/material.dart';
-import 'package:belajarflutter/ui/produk_page.dart';
 import 'package:belajarflutter/ui/login_page.dart';
+import 'package:belajarflutter/ui/produk_page.dart';
 import 'package:belajarflutter/ui/registrasi_page.dart';
 import 'package:belajarflutter/ui/produk_form.dart';
 import 'package:belajarflutter/ui/produk_detail.dart';
@@ -15,14 +15,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Toko Kita',
       debugShowCheckedModeBanner: false,
-      // Modul 4 (CRUD Module Flutter Bagian 1):
-      // - ProdukPage()     (Hal. 42: List Produk, Form Tambah/Ubah, Detail, Delete)
-      // - LoginPage()      (Hal. 36: Halaman Login & Link Registrasi)
-      // - RegistrasiPage() (Hal. 33: Halaman Registrasi)
-      home: ProdukPage(),
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.blue,
+          foregroundColor: Colors.white,
+          iconTheme: IconThemeData(color: Colors.white),
+        ),
+      ),
+      home: const LoginPage(),
     );
   }
 }

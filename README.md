@@ -154,3 +154,9 @@ Implementasi Model dan Antarmuka (UI) untuk modul CRUD Toko Kita:
      - `PUT /produk/{id}` : Memperbarui data produk (`ProdukController::ubah`).
      - `DELETE /produk/{id}` : Menghapus data produk (`ProdukController::hapus`).
    - **Verifikasi**: Seluruh endpoint RESTful telah diverifikasi dan siap diintegrasikan pada Modul 4 Bagian 2.
+
+#### Display Modul 4
+<p align="center">
+  <img src="screenshoot/display3.gif" alt="screenshoot/display3.gif" width="350" />
+</p>
+

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:belajarflutter/model/produk.dart';
 import 'package:belajarflutter/ui/produk_detail.dart';
 import 'package:belajarflutter/ui/produk_form.dart';
+import 'package:belajarflutter/ui/login_page.dart';
 
 class ProdukPage extends StatefulWidget {
   const ProdukPage({super.key});
@@ -37,7 +38,12 @@ class _ProdukPageState extends State<ProdukPage> {
             ListTile(
               title: const Text('Logout'),
               trailing: const Icon(Icons.logout),
-              onTap: () async {},
+              onTap: () async {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
             ),
           ],
         ),

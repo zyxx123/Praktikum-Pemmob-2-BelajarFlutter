@@ -1,6 +1,7 @@
 // ignore_for_file: unused_field, unused_local_variable, prefer_final_fields
 import 'package:flutter/material.dart';
 import 'package:belajarflutter/ui/registrasi_page.dart';
+import 'package:belajarflutter/ui/produk_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -83,6 +84,12 @@ class _LoginPageState extends State<LoginPage> {
       child: const Text("Login"),
       onPressed: () {
         var validate = _formKey.currentState!.validate();
+        if (validate) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const ProdukPage()),
+          );
+        }
       },
     );
   }
