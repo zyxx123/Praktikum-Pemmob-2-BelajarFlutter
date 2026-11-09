@@ -122,40 +122,6 @@ Implementasi tugas dan latihan praktikum Pemrograman Mobile menggunakan framewor
 ---
 
 ### Modul 4: Operasi CRUD dengan API (Bagian 1 - Desain UI & Model)
-Implementasi Model dan Antarmuka (UI) untuk modul CRUD Toko Kita:
-1. **Model Data (`lib/model/`)**:
-   - `login.dart`: Model untuk parsing response autentikasi login (`code`, `status`, `token`, `userID`, `userEmail`).
-   - `registrasi.dart`: Model untuk parsing response registrasi akun (`code`, `status`, `data`).
-   - `produk.dart`: Model entitas produk (`id`, `kodeProduk`, `namaProduk`, `hargaProduk`).
-2. **Halaman Registrasi (`lib/ui/registrasi_page.dart`)**:
-   - Form input registrasi (Nama min. 3 karakter, validasi format Email regex, Password min. 6 karakter, dan Konfirmasi Password).
-3. **Halaman Login (`lib/ui/login_page.dart`)**:
-   - Form input email & password dengan validasi data tidak boleh kosong serta link pintasan menuju halaman registrasi.
-4. **Halaman List Produk (`lib/ui/produk_page.dart`)**:
-   - Menampilkan daftar produk menggunakan widget `Card` dan `ListTile`.
-   - Tombol icon `+` pada AppBar untuk navigasi ke form tambah produk.
-   - Drawer dengan opsi `Logout`.
-   - Mengetuk item produk akan membuka halaman `ProdukDetail`.
-5. **Halaman Detail Produk (`lib/ui/produk_detail.dart`)**:
-   - Menampilkan informasi lengkap kode, nama, dan harga produk.
-   - Tombol **EDIT** untuk mengubah produk via `ProdukForm`.
-   - Tombol **DELETE** dengan konfirmasi pop-up dialog penghapusan data.
-6. **Form Tambah & Ubah Produk (`lib/ui/produk_form.dart`)**:
-   - Formulir dinamis dua mode: mode **Tambah Produk** (judul TAMBAH PRODUK, tombol SIMPAN) dan mode **Ubah Produk** (judul UBAH PRODUK, tombol UBAH dengan auto-fill data lama).
-7. **Backend REST API CodeIgniter 4 & Database MySQL (`toko_api`)**:
-   - **Database**: `toko_api` dengan tabel `member`, `member_token`, dan `produk` (file skema dan seed data: `toko_api.sql`).
-   - **Framework**: CodeIgniter 4 (`toko-api/`) dengan base controller `RestfulController.php`.
-   - **Endpoints REST API**:
-     - `POST /registrasi` : Registrasi akun member baru (`RegistrasiController::registrasi`).
-     - `POST /login` : Autentikasi member dan pembuatan auth token unik (`LoginController::login`).
-     - `GET /produk` : Menampilkan seluruh list produk (`ProdukController::list`).
-     - `GET /produk/{id}` : Menampilkan rincian produk berdasarkan ID (`ProdukController::detail`).
-     - `POST /produk` : Menambahkan produk baru (`ProdukController::create`).
-     - `PUT /produk/{id}` : Memperbarui data produk (`ProdukController::ubah`).
-     - `DELETE /produk/{id}` : Menghapus data produk (`ProdukController::hapus`).
-   - **Verifikasi**: Seluruh endpoint RESTful telah diverifikasi dan siap diintegrasikan pada Modul 4 Bagian 2.
-
-#### Display Modul 4
 <p align="center">
   <img src="screenshoot/display3.gif" alt="screenshoot/display3.gif" width="350" />
 </p>
