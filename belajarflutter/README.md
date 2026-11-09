@@ -40,3 +40,27 @@ Implementasi tugas dan latihan praktikum Pemrograman Mobile menggunakan framewor
 <p align="center">
   <img src="screenshoot/display2.gif" alt="screenshoot/display2.gif" width="350" />
 </p>
+
+---
+
+### Modul 4: Operasi CRUD dengan API (Bagian 1 - Desain UI & Model)
+Implementasi Model dan Antarmuka (UI) untuk modul CRUD Toko Kita:
+1. **Model Data (`lib/model/`)**:
+   - `login.dart`: Model untuk parsing response autentikasi login (`code`, `status`, `token`, `userID`, `userEmail`).
+   - `registrasi.dart`: Model untuk parsing response registrasi akun (`code`, `status`, `data`).
+   - `produk.dart`: Model entitas produk (`id`, `kodeProduk`, `namaProduk`, `hargaProduk`).
+2. **Halaman Registrasi (`lib/ui/registrasi_page.dart`)**:
+   - Form input registrasi (Nama min. 3 karakter, validasi format Email regex, Password min. 6 karakter, dan Konfirmasi Password).
+3. **Halaman Login (`lib/ui/login_page.dart`)**:
+   - Form input email & password dengan validasi data tidak boleh kosong serta link pintasan menuju halaman registrasi.
+4. **Halaman List Produk (`lib/ui/produk_page.dart`)**:
+   - Menampilkan daftar produk menggunakan widget `Card` dan `ListTile`.
+   - Tombol icon `+` pada AppBar untuk navigasi ke form tambah produk.
+   - Drawer dengan opsi `Logout`.
+   - Mengetuk item produk akan membuka halaman `ProdukDetail`.
+5. **Halaman Detail Produk (`lib/ui/produk_detail.dart`)**:
+   - Menampilkan informasi lengkap kode, nama, dan harga produk.
+   - Tombol **EDIT** untuk mengubah produk via `ProdukForm`.
+   - Tombol **DELETE** dengan konfirmasi pop-up dialog penghapusan data.
+6. **Form Tambah & Ubah Produk (`lib/ui/produk_form.dart`)**:
+   - Formulir dinamis dua mode: mode **Tambah Produk** (judul TAMBAH PRODUK, tombol SIMPAN) dan mode **Ubah Produk** (judul UBAH PRODUK, tombol UBAH dengan auto-fill data lama).
