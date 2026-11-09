@@ -142,3 +142,15 @@ Implementasi Model dan Antarmuka (UI) untuk modul CRUD Toko Kita:
    - Tombol **DELETE** dengan konfirmasi pop-up dialog penghapusan data.
 6. **Form Tambah & Ubah Produk (`lib/ui/produk_form.dart`)**:
    - Formulir dinamis dua mode: mode **Tambah Produk** (judul TAMBAH PRODUK, tombol SIMPAN) dan mode **Ubah Produk** (judul UBAH PRODUK, tombol UBAH dengan auto-fill data lama).
+7. **Backend REST API CodeIgniter 4 & Database MySQL (`toko_api`)**:
+   - **Database**: `toko_api` dengan tabel `member`, `member_token`, dan `produk` (file skema dan seed data: `toko_api.sql`).
+   - **Framework**: CodeIgniter 4 (`toko-api/`) dengan base controller `RestfulController.php`.
+   - **Endpoints REST API**:
+     - `POST /registrasi` : Registrasi akun member baru (`RegistrasiController::registrasi`).
+     - `POST /login` : Autentikasi member dan pembuatan auth token unik (`LoginController::login`).
+     - `GET /produk` : Menampilkan seluruh list produk (`ProdukController::list`).
+     - `GET /produk/{id}` : Menampilkan rincian produk berdasarkan ID (`ProdukController::detail`).
+     - `POST /produk` : Menambahkan produk baru (`ProdukController::create`).
+     - `PUT /produk/{id}` : Memperbarui data produk (`ProdukController::ubah`).
+     - `DELETE /produk/{id}` : Menghapus data produk (`ProdukController::hapus`).
+   - **Verifikasi**: Seluruh endpoint RESTful telah diverifikasi dan siap diintegrasikan pada Modul 4 Bagian 2.
